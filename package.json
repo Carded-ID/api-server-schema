@@ -1,0 +1,23 @@
+{
+  "name": "@carded-id/api-server-schema",
+  "version": "0.0.1",
+  "description": "API Validation Schema for Carded.ID API Server",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "author": "William Ma",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.9.4",
+    "zod": "^3.20.2"
+  },
+  "peerdependencies": {
+    "zod": "^3.20.2"
+  }
+}
