@@ -6,10 +6,10 @@ const UserSchema = z.object({
   password: z.string(),
 });
 
-const UserAPISignInSchema = GenericAPISchema.pick({ body: true }).extend({
+const UserAPISignInSchema = GenericAPISchema.extend({
   body: UserSchema.pick({ email: true, password: true }),
 });
-const UserAPISignUpSchema = GenericAPISchema.pick({ body: true }).extend({
+const UserAPISignUpSchema = GenericAPISchema.extend({
   body: UserSchema.pick({ email: true, password: true }),
 });
 

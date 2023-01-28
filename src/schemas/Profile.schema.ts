@@ -6,28 +6,27 @@ const ProfileSchema = z.object({
   name: z.string(),
 });
 
-const ProfileAPICreateProfileSchema = GenericAPISchema.pick({
-  body: true,
-}).extend({
+const ProfileAPICreateProfileSchema = GenericAPISchema.extend({
   body: ProfileSchema.pick({ username: true, name: true }),
 });
 
-const ProfileAPIGetProfileSchema = GenericAPISchema.pick({
-  params: true,
-}).extend({
+const ProfileAPIGetProfileSchema = GenericAPISchema.extend({
   params: ProfileSchema.pick({ username: true }),
 });
 
-const ProfileAPIUpdateProfileSchema = GenericAPISchema.pick({
-  params: true,
-  body: true,
-}).extend({
+const ProfileAPIUpdateProfileSchema = GenericAPISchema.extend({
   params: ProfileSchema.pick({ username: true }),
   body: ProfileSchema.pick({ username: true, name: true }),
 });
+
+const ProfileAPIDeleteProfileSchema = GenericAPISchema.extend({
+  params: ProfileSchema.pick({ username: true }),
+});
+
 export {
   ProfileSchema,
   ProfileAPICreateProfileSchema,
   ProfileAPIGetProfileSchema,
   ProfileAPIUpdateProfileSchema,
+  ProfileAPIDeleteProfileSchema,
 };
